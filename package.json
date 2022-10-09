@@ -2,10 +2,10 @@
   "name": "cumpleplanetas",
   "version": "1.0.0",
   "description": "Tus años en todos los planetas",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "star":"nodemon server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/AlbLC/cumplePlanetas#readme",
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5",
     "mongoose-sequence": "^5.3.1",

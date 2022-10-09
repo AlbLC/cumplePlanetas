@@ -1,0 +1,311 @@
+[{
+  "_id": {
+    "$oid": "63404b2f34f80f385c58f92c"
+  },
+  "name": "Mercurio",
+  "mass": 3.2846e+26,
+  "diameter": 4878,
+  "trasnslation": 87.97,
+  "rotation": 58.67,
+  "fastSun": 47.89,
+  "temperature": [
+    -180,
+    430
+  ],
+  "distanceSun": 57900000,
+  "satellites": [
+    ""
+  ]
+},{
+  "_id": {
+    "$oid": "63404caf34f80f385c58f92d"
+  },
+  "name": "Venus",
+  "mass": 4.83732e+27,
+  "diameter": 12103,
+  "trasnslation": 224.7,
+  "rotation": 243.01,
+  "fastSun": 35.03,
+  "temperature": [
+    465
+  ],
+  "distanceSun": 108200000,
+  "satellites": [
+    ""
+  ]
+},{
+  "_id": {
+    "$oid": "63404b2034f80f385c58f92b"
+  },
+  "name": "Tierra",
+  "mass": 5.972e+24,
+  "diameter": 12756,
+  "trasnslation": 365,
+  "rotation": 24,
+  "fastSun": 29.79,
+  "temperature": [
+    -70,
+    55
+  ],
+  "distanceSun": 149600000,
+  "satellites": [
+    "Luna"
+  ]
+},{
+  "_id": {
+    "$oid": "63416f6b34f80f385c58f92e"
+  },
+  "name": "Marte",
+  "mass": 6.4185e+23,
+  "diameter": 6786,
+  "trasnslation": 686.98,
+  "rotation": 24.61,
+  "fastSun": 24.13,
+  "temperature": [
+    -120,
+    25
+  ],
+  "distanceSun": 22900000,
+  "satellites": [
+    "Fobos",
+    "Deimos"
+  ]
+},{
+  "_id": {
+    "$oid": "6341727934f80f385c58f92f"
+  },
+  "name": "Jupiter",
+  "mass": 1.8991596e+27,
+  "diameter": 142984,
+  "trasnslation": 4328.9,
+  "rotation": 9.916,
+  "fastSun": 13.06,
+  "temperature": [
+    -180
+  ],
+  "distanceSun": 778300000,
+  "satellites": [
+    "Adrastea",
+    "Aedea",
+    "Aitné",
+    "Amaltea",
+    "Ananqué",
+    "Ío",
+    "Arce",
+    "Autónoe",
+    "Cálice",
+    "Calírroe",
+    "Calé",
+    "Caldona",
+    "Calisto",
+    "Carmé",
+    "Carpo",
+    "Cilene",
+    "Elara",
+    "Erínome",
+    "Euante",
+    "Eukélade",
+    "Euporia",
+    "Eurídome",
+    "Europa",
+    "Ganímedes",
+    "arpálice",
+    "Hegémone",
+    "Heliké",
+    "Hermipé",
+    "Herse",
+    "Himalia",
+    "Isonoé",
+    "Kallichore",
+    "Kore",
+    "Leda",
+    "Lisitea",
+    "Megaclite",
+    "Metis",
+    "Mnemea",
+    "Ortosia",
+    "Pasífae",
+    "Pasítea",
+    "Praxídice",
+    "S/2000 J 11",
+    "S/2003 J 10",
+    "S/2003 J 12",
+    "S/2003 J 15",
+    "S/2003 J 16",
+    "S/2003 J 18",
+    "S/2003 J 19",
+    "S/2003 J 2",
+    "S/2003 J 23",
+    "S/2003 J 3",
+    "S/2003 J 4",
+    "S/2003 J 5",
+    "S/2003 J 9",
+    "S/2010 J 1",
+    "S/2010 J 2",
+    "S/2011 J 1",
+    "S/2011 J 2",
+    "S/2016 J 1",
+    "S/2017 j 2",
+    "Sinope",
+    "Spondé",
+    "Táigete",
+    "Tebe",
+    "Telxínoe",
+    "Temisto",
+    "Tione",
+    "Yocasta"
+  ]
+},{
+  "_id": {
+    "$oid": "6341db22c0c9d527a16a76c3"
+  },
+  "name": "Saturno",
+  "mass": 5.683e+26,
+  "diameter": 120536,
+  "trasnslation": 10752.28,
+  "rotation": 11.183,
+  "fastSun": 9.67,
+  "temperature": [
+    -191.15,
+    -73
+  ],
+  "distanceSun": 1195000000,
+  "satellites": [
+    "Aegir",
+    "Albiorix",
+    "Antea",
+    "Atlas",
+    "Bebhionn",
+    "Bergelmir",
+    "Bestla",
+    "Calipso",
+    "Daphne",
+    "Dione",
+    "Egeón",
+    "Encélado",
+    "Epimeteo",
+    "Erriap",
+    "Farbauti",
+    "Fenrir",
+    "Fornjot",
+    "Greip",
+    "Hati",
+    "Helena",
+    "Hiperión",
+    "Hyrrokkin",
+    "Jápeto",
+    "Ijiraq",
+    "Jano",
+    "Jarnsaxa",
+    "Kari",
+    "Kiviuq",
+    "Loge",
+    "Metone",
+    "Mimas",
+    "Mundilfari",
+    "Narvi",
+    "Paaliaq",
+    "Palene",
+    "Pan",
+    "Pandora",
+    "Febe",
+    "Polux",
+    "Prometeo",
+    "Rea",
+    "Siarnaq",
+    "Skadi",
+    "Skoll",
+    "Surtur",
+    "Suttung",
+    "Tarqeq",
+    "Tarvos",
+    "Telesto",
+    "Tetis",
+    "Thrym",
+    "Titán",
+    "Ymir"
+  ]
+},{
+  "_id": {
+    "$oid": "6341de5dc0c9d527a16a76c4"
+  },
+  "name": "Urano",
+  "mass": 8.686e+25,
+  "diameter": 51118,
+  "trasnslation": 30799,
+  "rotation": 17.23,
+  "fastSun": 6.81,
+  "temperature": [
+    -214,
+    2,
+    -205,
+    2
+  ],
+  "distanceSun": {
+    "$numberLong": "2600000000"
+  },
+  "satellites": [
+    "Oberón",
+    "Ariel",
+    "Belinda",
+    "Bianca",
+    "Calibán",
+    "Cordelia",
+    "Crésida",
+    "Cupido",
+    "Desdémona",
+    "Ferdinando",
+    "Francisco",
+    "Julieta",
+    "Mab",
+    "Margarita",
+    "Miranda",
+    "Oberón",
+    "Ofelia",
+    "Perdita",
+    "Porcia",
+    "Próspero",
+    "Puck",
+    "Rosalinda",
+    "Setebos",
+    "Sicorax",
+    "Stefano",
+    "Titania",
+    "Trínculo",
+    "Umbriel"
+  ]
+},{
+  "_id": {
+    "$oid": "6341e35cc0c9d527a16a76c5"
+  },
+  "name": "Neptuno",
+  "mass": 1.024e+26,
+  "diameter": 49572,
+  "trasnslation": 60148.5,
+  "rotation": 16.1,
+  "fastSun": 5.4,
+  "temperature": [
+    -220,
+    -217.15
+  ],
+  "distanceSun": {
+    "$numberLong": "4300000000"
+  },
+  "satellites": [
+    "Despina",
+    "Galatea",
+    "Halimede",
+    "Hipocampo",
+    "Laomedeia",
+    "Larisa",
+    "Náyade",
+    "Nereida",
+    "Neso",
+    "Proteo",
+    "Psámate",
+    "S/2004 N 1",
+    "Sao",
+    "Talasa",
+    "Tritón"
+  ]
+}]
