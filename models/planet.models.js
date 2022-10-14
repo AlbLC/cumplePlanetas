@@ -12,6 +12,9 @@ const objetoPlanetSchema = {
   temperature: Array,
   distanceSun: Number,
   satellites: Array,
+  description: String,
+  history: String,
+  photo: Array,
 };
 
 const planetSchema = mongoose.Schema(objetoPlanetSchema, { versionKey: false });
