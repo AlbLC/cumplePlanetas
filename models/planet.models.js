@@ -15,6 +15,7 @@ const objetoPlanetSchema = {
   description: String,
   history: String,
   photo: Array,
+  model: String,
 };
 
 const planetSchema = mongoose.Schema(objetoPlanetSchema, { versionKey: false });
