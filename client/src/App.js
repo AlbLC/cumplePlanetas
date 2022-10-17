@@ -1,25 +1,16 @@
-
 import React from "react";
-// import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Calculadora from "./components/Calculadora";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Info from "./components/Info";
-import Carrusel from "./components/Carrusel";
 
-import MenuPlanetario from "./components/MenuPlanetario";
-import Tarjetas from "./components/Tarjetas"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Main from "./components/Main";
 
 function App() {
-
   return (
     <div className="app">
-      
-      <Carrusel />
-      {/* <MenuPlanetario/> */}
-      {/* <Info /> */}
-      <Calculadora />
-      {/* <Tarjetas/> */}
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
     </div>
   );
 }
