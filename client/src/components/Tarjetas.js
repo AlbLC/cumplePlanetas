@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import imgPlaneta1 from '../imgPlanetas/mercurio.png'
 
 function Tarjetas() {
+  
   return (
     <Card className='tarjetas'>
       <Card.Header>Mercurio</Card.Header>
