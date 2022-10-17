@@ -12,7 +12,7 @@ function Calculadora() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-  const [old, setOld] = useState(13505);
+  const [old, setOld] = useState("");
 
   const [data, setData] = useState("");
   const [view, setView] = useState(false);
