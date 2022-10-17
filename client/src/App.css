@@ -1,0 +1,55 @@
+* {
+    background-color:rgb(224, 221, 217)
+}
+.app {
+    padding: 10px 30px 10px 30px;
+}
+
+.carrusel {
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.info {
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.calculadora {
+    padding: 5px;
+    margin-top: 20px;
+}
+
+
+.menuPlanetario {
+    margin: 30px;
+    height: 60px;
+    display: flex;
+    justify-content:space-around;
+    
+
+}
+
+.menuPlanetario .imgMenuPlanetario:hover {
+    height: 90px;
+
+}
+
+
+.tarjetas {
+    margin-top: 20px;
+}
+
+.tarjetas .imgMenuPlanetario {
+    width: 70px;
+
+}
+
+/* 
+colores para usar
+morado: #C9B3E3
+rosa: #DEBFC7
+granate: #5F2425
+azul: 87A9B9
+beige: rgb(224, 221, 217)
+*/
