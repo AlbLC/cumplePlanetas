@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import {Link,animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 import Accordion from "react-bootstrap/Accordion";
 
 import React, { useEffect, useState } from "react";
@@ -25,6 +25,23 @@ function Calculadora() {
         setData(response);
       });
   }, []);
+
+  //! MONTH
+
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
 
   //! Verifica los datos de los días correctos
 
@@ -71,18 +88,15 @@ function Calculadora() {
       <div className="menuPlanetario">
         {data
           ? data.map((planet, k) => (
-           
-                <img
-                  key={k}
-                  className="imgMenuPlanetario"
-                  src={planet.photo[0]}
-                  alt="imgMenuPlanetario"
-                  />
-         
+              <img
+                key={k}
+                className="imgMenuPlanetario"
+                src={planet.photo[0]}
+                alt="imgMenuPlanetario"
+              />
             ))
           : ""}
       </div>
-
       <div className="info">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
@@ -96,6 +110,7 @@ function Calculadora() {
           </Accordion.Item>
         </Accordion>
       </div>
+      {/* Insertar DD/MM/YY */}
 
       <div className="calculadora">
         <Form>
@@ -113,18 +128,16 @@ function Calculadora() {
                 onChange={(e) => setMonth(e.target.value)}
               >
                 <option>Mes</option>
-                <option value="1">Enero</option>
-                <option value="2">Febrero</option>
-                <option value="3">Marzo</option>
-                <option value="4">Abril</option>
-                <option value="5">Mayo</option>
-                <option value="6">Junio</option>
-                <option value="7">Julio</option>
-                <option value="8">Agosto</option>
-                <option value="9">Septiembre</option>
-                <option value="10">Octubre</option>
-                <option value="11">Noviembre</option>
-                <option value="12">Diciembre</option>
+
+                {meses
+                  ? meses.map((mes, i) => {
+                      return (
+                        <option key={i} value={i + 1}>
+                          {mes}
+                        </option>
+                      );
+                    })
+                  : ""}
               </Form.Select>
             </Form.Group>
             <Form.Group as={Col} controlId="formGridAge">
@@ -141,7 +154,6 @@ function Calculadora() {
           {messageFecha ? <p>Fechas incorrectas</p> : ""}
         </Form>
       </div>
-
       {data
         ? data.map((planet, i) => (
             <Card key={i} id={planet.name} className="tarjetas">

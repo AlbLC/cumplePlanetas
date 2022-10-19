@@ -2,9 +2,8 @@
 const mongoose = require("mongoose");
 
 // url del mongo
-// const url = `mongodb://localhost:27017/brithPlanet`;
-const url = `mongodb://localhost:27017/birthPlanets`;
-
+// const url = `mongodb://localhost:27017/birthPlanets`;
+const url = `mongodb+srv://AlbLC:1234@cluster0.jve4aip.mongodb.net/birthPlanets`
 mongoose
   .connect(url, {
     keepAlive: true,

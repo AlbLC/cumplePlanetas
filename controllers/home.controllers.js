@@ -1,8 +1,8 @@
 
-const home = {
-  getHome: (req, res) => {
-    res.render("index");
-  }
-};
+// const home = {
+//   getHome: (req, res) => {
+//     res.render("index");
+//   }
+// };
 
-module.exports = home;
+// module.exports = home;
