@@ -20,21 +20,16 @@
     margin-top: 20px;
 }
 
-
 .menuPlanetario {
     margin: 30px;
     height: 60px;
     display: flex;
     justify-content:space-around;
-    
-
 }
 
 .menuPlanetario .imgMenuPlanetario:hover {
     height: 90px;
-
 }
-
 
 .tarjetas {
     margin-top: 20px;
@@ -42,7 +37,6 @@
 
 .tarjetas .imgMenuPlanetario {
     width: 70px;
-
 }
 
 /* 
