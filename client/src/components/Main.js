@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
 import Calculadora from './Calculadora'
+import Home from './Home'
 
 
 const Main = () => {
@@ -10,6 +11,8 @@ const Main = () => {
       <Routes>
 
         <Route path='/planets' element={<Calculadora />} />
+        <Route path='/' element={<Home />} />
+        
 
       </Routes>
     </div>
