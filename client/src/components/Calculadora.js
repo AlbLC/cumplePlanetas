@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-
+import {Link,animateScroll as scroll } from "react-scroll";
 import Accordion from "react-bootstrap/Accordion";
 
 import React, { useEffect, useState } from "react";
@@ -16,10 +16,9 @@ function Calculadora() {
 
   const [data, setData] = useState("");
   const [view, setView] = useState(false);
+  const [messageFecha, setMessageFecha] = useState("");
 
   useEffect(() => {
-    console.log("actualiza");
-    // const headers = { "Content-Type": "application/json" };
     fetch("/planets")
       .then((response) => response.json())
       .then((response) => {
@@ -27,7 +26,37 @@ function Calculadora() {
       });
   }, []);
 
+  //! Verifica los datos de los días correctos
+
   function calcular() {
+    var day30 =
+      (month == 4 || month == 6 || month == 4 || month == 9 || month == 11) &&
+      day > 0 &&
+      day <= 30;
+    var day31 =
+      (month == 1 ||
+        month == 3 ||
+        month == 5 ||
+        month == 7 ||
+        month == 8 ||
+        month == 8) &&
+      day > 0 &&
+      day <= 31;
+    var noBisiesto = month == 2 && day > 0 && day <= 28;
+    var bisiesto =
+      (year % 100 != 0 && year % 4 == 0) ||
+      (year % 400 == 0 && month == 2 && day > 0 && day <= 29);
+
+    if (bisiesto || noBisiesto || day31 || day30) {
+      diferencia();
+      setMessageFecha(false);
+    } else {
+      setMessageFecha(true);
+    }
+  }
+
+  //! Diferencia en días [FechaNacimiento - fechaActual]
+  function diferencia() {
     var FechaNacimiento = `${year}-${month}-${day}`;
     var fechaNace = new Date(FechaNacimiento);
     var fechaActual = new Date();
@@ -42,12 +71,14 @@ function Calculadora() {
       <div className="menuPlanetario">
         {data
           ? data.map((planet, k) => (
-              <img
-                key={k}
-                className="imgMenuPlanetario"
-                src={planet.photo[0]}
-                alt="imgMenuPlanetario"
-              />
+           
+                <img
+                  key={k}
+                  className="imgMenuPlanetario"
+                  src={planet.photo[0]}
+                  alt="imgMenuPlanetario"
+                  />
+         
             ))
           : ""}
       </div>
@@ -107,12 +138,13 @@ function Calculadora() {
           <Button variant="dark" type="button" onClick={() => calcular()}>
             Calcular
           </Button>
+          {messageFecha ? <p>Fechas incorrectas</p> : ""}
         </Form>
       </div>
 
       {data
-        ? data.map((planet) => (
-            <Card className="tarjetas">
+        ? data.map((planet, i) => (
+            <Card key={i} id={planet.name} className="tarjetas">
               <Card.Header>{planet.name}</Card.Header>
               <Card.Body>
                 <img
@@ -130,25 +162,37 @@ function Calculadora() {
                 <Card.Text>{planet.history}</Card.Text>
                 {view == planet.name ? (
                   <div>
-                    <iframe
-                      src={planet.model}
-                      width="100%"
-                      height="450px"
-                      frameBorder="0"
-                    />
-                    <p>{planet.description}</p>
+                    <div>
+                      <iframe
+                        src={planet.model}
+                        width="100%"
+                        height="450px"
+                        frameBorder="0"
+                      />
+                      <p>{planet.description}</p>
+                    </div>
+                    <Button
+                      id={planet.name}
+                      variant="primary"
+                      onClick={(e) => setView(false)}
+                    >
+                      Menos información
+                    </Button>
                   </div>
                 ) : (
                   ""
                 )}
-
-                <Button
-                  id={planet.name}
-                  variant="primary"
-                  onClick={(e) => setView(e.target.id)}
-                >
-                  Más información
-                </Button>
+                {view != planet.name ? (
+                  <Button
+                    id={planet.name}
+                    variant="primary"
+                    onClick={(e) => setView(e.target.id)}
+                  >
+                    Más información
+                  </Button>
+                ) : (
+                  ""
+                )}
               </Card.Body>
             </Card>
           ))
