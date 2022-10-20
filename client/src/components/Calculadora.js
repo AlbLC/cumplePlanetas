@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Accordion from "react-bootstrap/Accordion";
+import languages from "../languages/spanish.json";
 
 import React, { useEffect, useState } from "react";
 
@@ -17,12 +18,14 @@ function Calculadora() {
   const [data, setData] = useState("");
   const [view, setView] = useState(false);
   const [messageFecha, setMessageFecha] = useState("");
+  const [idioma, setIdioma] = useState(languages.spanish);
 
   useEffect(() => {
     fetch("/planets")
       .then((response) => response.json())
       .then((response) => {
         setData(response);
+        console.log(idioma);
       });
   }, []);
 
@@ -35,23 +38,6 @@ function Calculadora() {
 
     return arrayDay;
   };
-
-  //! MONTH crear options
-
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
 
   //!YEARS crear options
   const years = () => {
@@ -100,35 +86,34 @@ function Calculadora() {
 
   //! Diferencia en días [FechaNacimiento - fechaActual]
   function diferencia() {
-    var FechaNacimiento = `${year}-${month}-${day}`;
-    var fechaNace = new Date(FechaNacimiento);
-    var fechaActual = new Date();
-    var edad = Math.floor((fechaActual - fechaNace) / (1000 * 60 * 60 * 24));
-    setOld(edad);
-  }
-
-  function calYear(translation) {
-    return (old / translation).toFixed(2);
-  }
-  
-  function calDays(translation) {
-    var fechaNow = new Date();
-    var yearNow = fechaNow.getFullYear();
-    var years = (old / translation).toFixed(2);
-    var cont = 0;
-    for (let i = year; i < yearNow; i++) {
-      var bisiesto = (i % 100 != 0 && i % 4 == 0) || i % 400 == 0;
-      if (bisiesto) {
-        cont++;
-        console.log(i + " es bisiesto");
-      }
+    if (month.length == 1) {
+      setMonth(`0${month}`);
     }
-    console.log(cont);
-    return (years - parseInt(years)) * 365;
+    if (day.length == 1) {
+      setDay(`0${day}`);
+    }
+    var fechaNace = new Date(`${year}-${month}-${day}T00:00:00`);
+    var fechaActual = new Date();
+    console.log(idioma);
+    var edad = Math.floor(fechaActual - fechaNace) / (1000 * 60 * 60 * 24);
+
+    setOld(edad);
   }
 
   return (
     <div>
+      <input
+        value="Inglés"
+        id="bIdioma"
+        type="button"
+        onClick={() => setIdioma(languages.english)}
+      />
+      <input
+        value="Spanish"
+        id="bIdioma"
+        type="button"
+        onClick={() => setIdioma(languages.spanish)}
+      />
       <div className="menuPlanetario">
         {data
           ? data.map((planet, k) => (
@@ -144,13 +129,8 @@ function Calculadora() {
       <div className="info">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Información de uso</Accordion.Header>
-            <Accordion.Body>
-              Escribe en las diferentes casillas tu día, mes y año de nacimiento
-              y pulsa calcular. Abajo verás tu edad y tu próximo cumpleaños en
-              los diferentes planetas. Si quieres más información de un planeta
-              en concreto pulsa en él.
-            </Accordion.Body>
+            <Accordion.Header id="bt_title">{idioma.bt_title}</Accordion.Header>
+            <Accordion.Body id="text_info">{idioma.text_info}</Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </div>
@@ -163,11 +143,11 @@ function Calculadora() {
                 aria-label="Default select example"
                 onChange={(e) => setDay(e.target.value)}
               >
-                <option>Día</option>
+                <option id="option_title_day">{idioma.option_title_day}</option>
                 {days()
                   ? days().map((day, i) => {
                       return (
-                        <option key={i} value={day}>
+                        <option id={`day${day}`} key={i} value={day}>
                           {day}
                         </option>
                       );
@@ -180,9 +160,9 @@ function Calculadora() {
                 aria-label="Default select example"
                 onChange={(e) => setMonth(e.target.value)}
               >
-                <option>Mes</option>
-                {meses
-                  ? meses.map((mes, i) => {
+                <option>{idioma.option}</option>
+                {idioma
+                  ? idioma.months.map((mes, i) => {
                       return (
                         <option key={i} value={i + 1}>
                           {mes}
@@ -197,7 +177,7 @@ function Calculadora() {
                 aria-label="Default select example"
                 onChange={(e) => setYear(e.target.value)}
               >
-                <option>Año</option>
+                <option>{idioma.option_title_year}</option>
                 {years()
                   ? years().map((year, i) => {
                       return (
@@ -209,13 +189,19 @@ function Calculadora() {
                   : ""}
               </Form.Select>
             </Form.Group>
-            {messageFecha ? <p id="p-invalid">Fechas incorrectas</p> : ""}
+            {messageFecha ? <p id="p_invalid">{idioma.p_invalid}</p> : ""}
           </Row>
-          <Button variant="dark" type="button" onClick={() => calcular()}>
-            Calcular
+          <Button
+            id="bt_calculate"
+            variant="dark"
+            type="button"
+            onClick={() => calcular()}
+          >
+            {idioma.bt_calculate}
           </Button>
         </Form>
       </div>
+
       {data
         ? data.map((planet, i) => (
             <Card key={i} id={planet.name} className="tarjetas">
@@ -228,17 +214,16 @@ function Calculadora() {
                 />
                 {old ? (
                   <Card.Title>
-                    <p> {parseInt(calYear(planet.translation))}</p>
-                    <p> {calDays(planet.translation)}</p>
-
-                    <p>
-                      Tienes {(old / planet.translation).toFixed(2)} años{" "}
+                    <p id="p_result_YMHM">
+                      {idioma.p_result_YMHM[0]}{" "}
+                      {(old / planet.translation).toFixed(0)}{" "}
+                      {idioma.p_result_YMHM[1]}{" "}
                       {(
                         ((old / planet.translation).toFixed(2) -
                           parseInt(old / planet.translation).toFixed(0)) *
                         365
                       ).toFixed(0)}{" "}
-                      dias{" "}
+                      {idioma.p_result_YMHM[2]}{" "}
                       {(
                         ((
                           ((old / planet.translation).toFixed(2) -
@@ -252,7 +237,7 @@ function Calculadora() {
                           ).toFixed(0)) *
                         24
                       ).toFixed(0)}{" "}
-                      horas{" "}
+                      {idioma.p_result_YMHM[3]}{" "}
                       {(
                         ((
                           ((
@@ -284,13 +269,13 @@ function Calculadora() {
                           ).toFixed(0)) *
                         60
                       ).toFixed(0)}{" "}
-                      min{" "}
+                      {idioma.p_result_YMHM[4]}{" "}
                     </p>
                   </Card.Title>
                 ) : (
                   ""
                 )}
-                <Card.Text>{planet.history}</Card.Text>
+                <Card.Text>{idioma.history[i]}</Card.Text>
                 {view == planet.name ? (
                   <div>
                     <div>
@@ -300,14 +285,14 @@ function Calculadora() {
                         height="450px"
                         frameBorder="0"
                       />
-                      <p>{planet.description}</p>
+                      <p>{idioma.description[i]}</p>
                     </div>
                     <Button
                       id={planet.name}
                       variant="primary"
                       onClick={(e) => setView(false)}
                     >
-                      Menos información
+                      {idioma.b_info}
                     </Button>
                   </div>
                 ) : (
@@ -319,7 +304,7 @@ function Calculadora() {
                     variant="primary"
                     onClick={(e) => setView(e.target.id)}
                   >
-                    Más información
+                    {idioma.info}
                   </Button>
                 ) : (
                   ""
