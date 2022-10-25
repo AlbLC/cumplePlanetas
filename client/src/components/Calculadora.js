@@ -1,13 +1,17 @@
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import { Form, Button, NavDropdown, Navbar, Nav, Container, Carousel, NavLink } from "react-bootstrap";
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import github from '../imglogo/github.png'
+
 import { Link, animateScroll as scroll } from "react-scroll";
 import Accordion from "react-bootstrap/Accordion";
 import languages from "../languages/spanish.json";
 
 import React, { useEffect, useState } from "react";
+
+import banner from '../imglogo/banner.png'
 
 function Calculadora() {
   const [day, setDay] = useState("");
@@ -101,6 +105,11 @@ function Calculadora() {
   }
 
   return (
+
+
+    
+    <div className="containerTodo">
+{/* MENÚ IDIOMA*/}
     <div>
       <input
         value="Inglés"
@@ -126,6 +135,55 @@ function Calculadora() {
             ))
           : ""}
       </div>
+
+
+{/* MENÚ NAVBAR */}
+      <Navbar className="barraMenu" collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">Home</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#features">Repositorio</Nav.Link>
+              <Nav.Link href="#pricing">Documentación</Nav.Link>
+              <NavDropdown title="Porfolios" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Alberto Lara</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Jorge Sánchez
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Lydia Vega</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+
+{/* BANNER CABECERA */}
+      <a href='/Planets' className="banner">
+        <img className="imgbanner" src={banner} alt="banner" />
+      </a>
+
+
+{/* MENÚ PLANETAS */}
+      <div className="menuPlanetario">
+        {data
+          ? data.map((planet, k) => (
+
+            <img
+              key={k}
+              className="imgMenuPlanetario"
+              src={planet.photo[0]}
+              alt="imgMenuPlanetario"
+            />
+
+          ))
+          : ""}
+      </div>
+
+
+{/* BOTÓN INFORMACIÓN DESPLEGABLE */}
+
       <div className="info">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
@@ -135,6 +193,8 @@ function Calculadora() {
         </Accordion>
       </div>
 
+
+{/* CALCULADORA */}
       <div className="calculadora">
         <Form>
           <Row className="mb-3">
@@ -153,8 +213,10 @@ function Calculadora() {
                       );
                     })
                   : ""}
+
               </Form.Select>
             </Form.Group>
+
             <Form.Group as={Col} controlId="formGridState">
               <Form.Select
                 aria-label="Default select example"
@@ -172,6 +234,7 @@ function Calculadora() {
                   : ""}
               </Form.Select>
             </Form.Group>
+
             <Form.Group as={Col} controlId="formGridAge">
               <Form.Select
                 aria-label="Default select example"
@@ -188,17 +251,16 @@ function Calculadora() {
                     })
                   : ""}
               </Form.Select>
+
             </Form.Group>
             {messageFecha ? <p id="p_invalid">{idioma.p_invalid}</p> : ""}
           </Row>
-          <Button
-            id="bt_calculate"
-            variant="dark"
-            type="button"
-            onClick={() => calcular()}
-          >
+
+          <button className="button-81" type="button" onClick={() => calcular()}>
             {idioma.bt_calculate}
-          </Button>
+          </button>
+          {messageFecha ? <p>Fechas incorrectas</p> : ""}
+
         </Form>
       </div>
 
@@ -287,32 +349,39 @@ function Calculadora() {
                       />
                       <p>{idioma.description[i]}</p>
                     </div>
-                    <Button
+                  <div>
+                    <button className="button-81"
                       id={planet.name}
                       variant="primary"
                       onClick={(e) => setView(false)}
                     >
                       {idioma.b_info}
-                    </Button>
+                    </button>
                   </div>
-                ) : (
-                  ""
-                )}
-                {view != planet.name ? (
-                  <Button
-                    id={planet.name}
-                    variant="primary"
-                    onClick={(e) => setView(e.target.id)}
-                  >
+
+                </div>
+              ) : (
+                ""
+              )}
+              {view != planet.name ? (
+                <button className="button-81"
+                  id={planet.name}
+                  variant="primary"
+                  onClick={(e) => setView(e.target.id)}
+                >
                     {idioma.info}
-                  </Button>
-                ) : (
-                  ""
-                )}
-              </Card.Body>
-            </Card>
-          ))
-        : ""}
+                  </button>
+              ) : (
+                ""
+              )}
+            </Card.Body>
+          </Card>
+        ))
+        :""}             
+          
+
+
+          </div>
     </div>
   );
 }
