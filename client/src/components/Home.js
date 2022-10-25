@@ -1,3 +1,4 @@
+
 import React, { } from "react";
 import { Form, Button, NavDropdown, Navbar, Nav, Container, Carousel, NavLink } from "react-bootstrap";
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
@@ -220,12 +221,10 @@ function Home() {
             </MDBFooter>
 
 
-
-
-
-
         </div>
     )
 }
 
 export default Home;
+
+

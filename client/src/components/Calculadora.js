@@ -2,14 +2,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { Form, Button, NavDropdown, Navbar, Nav, Container, Carousel, NavLink } from "react-bootstrap";
-
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-
-
 import github from '../imglogo/github.png'
 
 import { Link, animateScroll as scroll } from "react-scroll";
 import Accordion from "react-bootstrap/Accordion";
+import languages from "../languages/spanish.json";
 
 import React, { useEffect, useState } from "react";
 
@@ -24,59 +22,119 @@ function Calculadora() {
   const [data, setData] = useState("");
   const [view, setView] = useState(false);
   const [messageFecha, setMessageFecha] = useState("");
+  const [idioma, setIdioma] = useState(languages.spanish);
 
   useEffect(() => {
     fetch("/planets")
       .then((response) => response.json())
       .then((response) => {
         setData(response);
+        console.log(idioma);
       });
   }, []);
+
+  //!DAYS crear options
+  const days = () => {
+    var arrayDay = [];
+    for (let l = 1; l <= 31; l++) {
+      arrayDay.push(l);
+    }
+
+    return arrayDay;
+  };
+
+  //!YEARS crear options
+  const years = () => {
+    var fechaNow = new Date();
+    var yearNow = fechaNow.getFullYear();
+    var arrayYear = [];
+    for (let k = yearNow; k > yearNow - 120; k--) {
+      arrayYear.push(k);
+    }
+
+    return arrayYear;
+  };
 
   //! Verifica los datos de los días correctos
 
   function calcular() {
-    var day30 =
-      (month == 4 || month == 6 || month == 4 || month == 9 || month == 11) &&
-      day > 0 &&
-      day <= 30;
-    var day31 =
-      (month == 1 ||
-        month == 3 ||
-        month == 5 ||
-        month == 7 ||
-        month == 8 ||
-        month == 8) &&
-      day > 0 &&
-      day <= 31;
-    var noBisiesto = month == 2 && day > 0 && day <= 28;
-    var bisiesto =
-      (year % 100 != 0 && year % 4 == 0) ||
-      (year % 400 == 0 && month == 2 && day > 0 && day <= 29);
+    //* dd [1-28]
+    const d28 = day > 0 && day <= 28;
+    //* dd [1-29]
+    const d29 = day > 0 && day <= 29;
+    //* dd [1-30]
+    const d30 = day > 0 && day <= 30;
+    //* dd [1-31]
+    const d31 = day > 0 && day <= 31;
+    //* meses con 30 dias y dd[1-30]
+    const m30 = (month == 4 || month == 6 || month == 9 || month == 11) && d30;
+    //* meses q no son 30 dias y no es mm [2] y dd [1-31]
+    const m31 = !m30 && month != 2 && d31;
+    //* mm [2] y dd[1-28]
+    const noBisiesto = month == 2 && d28;
+    //* bisiesto1: yy no multiplo 100 y si de 4
+    const noMult100Si4 = year % 100 != 0 && year % 4 == 0;
+    //* bisiesto2:  yy multiplo 400, mm [2] y dd[0-29]
+    const multi400 = year % 400 == 0 && month == 2 && d29;
+    //* bisiesto1 o bisiesto2
+    const bisiesto = noMult100Si4 || multi400;
 
-    if (bisiesto || noBisiesto || day31 || day30) {
+    if (bisiesto || noBisiesto || m31 || m30) {
       diferencia();
       setMessageFecha(false);
     } else {
       setMessageFecha(true);
+      setOld();
     }
   }
 
   //! Diferencia en días [FechaNacimiento - fechaActual]
   function diferencia() {
-    var FechaNacimiento = `${year}-${month}-${day}`;
-    var fechaNace = new Date(FechaNacimiento);
+    if (month.length == 1) {
+      setMonth(`0${month}`);
+    }
+    if (day.length == 1) {
+      setDay(`0${day}`);
+    }
+    var fechaNace = new Date(`${year}-${month}-${day}T00:00:00`);
     var fechaActual = new Date();
-
-    var edad = Math.floor((fechaActual - fechaNace) / (1000 * 60 * 60 * 24));
+    console.log(idioma);
+    var edad = Math.floor(fechaActual - fechaNace) / (1000 * 60 * 60 * 24);
 
     setOld(edad);
   }
 
   return (
 
+
     
     <div className="containerTodo">
+{/* MENÚ IDIOMA*/}
+    <div>
+      <input
+        value="Inglés"
+        id="bIdioma"
+        type="button"
+        onClick={() => setIdioma(languages.english)}
+      />
+      <input
+        value="Spanish"
+        id="bIdioma"
+        type="button"
+        onClick={() => setIdioma(languages.spanish)}
+      />
+      <div className="menuPlanetario">
+        {data
+          ? data.map((planet, k) => (
+              <img
+                key={k}
+                className="imgMenuPlanetario"
+                src={planet.photo[0]}
+                alt="imgMenuPlanetario"
+              />
+            ))
+          : ""}
+      </div>
 
 
 {/* MENÚ NAVBAR */}
@@ -125,16 +183,12 @@ function Calculadora() {
 
 
 {/* BOTÓN INFORMACIÓN DESPLEGABLE */}
+
       <div className="info">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Información de uso</Accordion.Header>
-            <Accordion.Body>
-              Escribe en las diferentes casillas tu día, mes y año de nacimiento
-              y pulsa calcular. Abajo verás tu edad y tu próximo cumpleaños en
-              los diferentes planetas. Si quieres más información de un planeta
-              en concreto pulsa en él.
-            </Accordion.Body>
+            <Accordion.Header id="bt_title">{idioma.bt_title}</Accordion.Header>
+            <Accordion.Body id="text_info">{idioma.text_info}</Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </div>
@@ -145,83 +199,166 @@ function Calculadora() {
         <Form>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridDay">
-              <Form.Control
-                type="dia"
-                placeholder="Día"
+              <Form.Select
+                aria-label="Default select example"
                 onChange={(e) => setDay(e.target.value)}
-              />
+              >
+                <option id="option_title_day">{idioma.option_title_day}</option>
+                {days()
+                  ? days().map((day, i) => {
+                      return (
+                        <option id={`day${day}`} key={i} value={day}>
+                          {day}
+                        </option>
+                      );
+                    })
+                  : ""}
+
+              </Form.Select>
             </Form.Group>
+
             <Form.Group as={Col} controlId="formGridState">
               <Form.Select
                 aria-label="Default select example"
                 onChange={(e) => setMonth(e.target.value)}
               >
-                <option>Mes</option>
-                <option value="1">Enero</option>
-                <option value="2">Febrero</option>
-                <option value="3">Marzo</option>
-                <option value="4">Abril</option>
-                <option value="5">Mayo</option>
-                <option value="6">Junio</option>
-                <option value="7">Julio</option>
-                <option value="8">Agosto</option>
-                <option value="9">Septiembre</option>
-                <option value="10">Octubre</option>
-                <option value="11">Noviembre</option>
-                <option value="12">Diciembre</option>
+                <option>{idioma.option}</option>
+                {idioma
+                  ? idioma.months.map((mes, i) => {
+                      return (
+                        <option key={i} value={i + 1}>
+                          {mes}
+                        </option>
+                      );
+                    })
+                  : ""}
               </Form.Select>
             </Form.Group>
+
             <Form.Group as={Col} controlId="formGridAge">
-              <Form.Control
-                type="anio"
-                placeholder="Año"
+              <Form.Select
+                aria-label="Default select example"
                 onChange={(e) => setYear(e.target.value)}
-              />
+              >
+                <option>{idioma.option_title_year}</option>
+                {years()
+                  ? years().map((year, i) => {
+                      return (
+                        <option key={i} value={year}>
+                          {year}
+                        </option>
+                      );
+                    })
+                  : ""}
+              </Form.Select>
+
             </Form.Group>
+            {messageFecha ? <p id="p_invalid">{idioma.p_invalid}</p> : ""}
           </Row>
+
           <button className="button-81" type="button" onClick={() => calcular()}>
-            Calcular tu edad en cada planeta
+            {idioma.bt_calculate}
           </button>
           {messageFecha ? <p>Fechas incorrectas</p> : ""}
+
         </Form>
       </div>
 
       {data
         ? data.map((planet, i) => (
-          <Card key={i} id={planet.name} className="tarjetas">
-            <Card.Header>{planet.name}</Card.Header>
-            <Card.Body>
-              <img
-                className="imgMenuPlanetario"
-                src={planet.photo[0]}
-                alt="imgMenuPlanetario"
-              />
-              {old ? (
-                <Card.Title>
-                  <p>Tienes {(old / planet.translation).toFixed(2)} años</p>
-                </Card.Title>
-              ) : (
-                ""
-              )}
-              <Card.Text>{planet.history}</Card.Text>
-              {view == planet.name ? (
-                <div>
+            <Card key={i} id={planet.name} className="tarjetas">
+              <Card.Header>{planet.name}</Card.Header>
+              <Card.Body>
+                <img
+                  className="imgMenuPlanetario"
+                  src={planet.photo[0]}
+                  alt="imgMenuPlanetario"
+                />
+                {old ? (
+                  <Card.Title>
+                    <p id="p_result_YMHM">
+                      {idioma.p_result_YMHM[0]}{" "}
+                      {(old / planet.translation).toFixed(0)}{" "}
+                      {idioma.p_result_YMHM[1]}{" "}
+                      {(
+                        ((old / planet.translation).toFixed(2) -
+                          parseInt(old / planet.translation).toFixed(0)) *
+                        365
+                      ).toFixed(0)}{" "}
+                      {idioma.p_result_YMHM[2]}{" "}
+                      {(
+                        ((
+                          ((old / planet.translation).toFixed(2) -
+                            parseInt(old / planet.translation).toFixed(0)) *
+                          365
+                        ).toFixed(2) -
+                          parseInt(
+                            ((old / planet.translation).toFixed(2) -
+                              parseInt(old / planet.translation).toFixed(0)) *
+                              365
+                          ).toFixed(0)) *
+                        24
+                      ).toFixed(0)}{" "}
+                      {idioma.p_result_YMHM[3]}{" "}
+                      {(
+                        ((
+                          ((
+                            ((old / planet.translation).toFixed(2) -
+                              parseInt(old / planet.translation).toFixed(0)) *
+                            365
+                          ).toFixed(2) -
+                            parseInt(
+                              ((old / planet.translation).toFixed(2) -
+                                parseInt(old / planet.translation).toFixed(0)) *
+                                365
+                            ).toFixed(0)) *
+                          24
+                        ).toFixed(2) -
+                          parseInt(
+                            ((
+                              ((old / planet.translation).toFixed(2) -
+                                parseInt(old / planet.translation).toFixed(0)) *
+                              365
+                            ).toFixed(2) -
+                              parseInt(
+                                ((old / planet.translation).toFixed(2) -
+                                  parseInt(old / planet.translation).toFixed(
+                                    0
+                                  )) *
+                                  365
+                              ).toFixed(0)) *
+                              24
+                          ).toFixed(0)) *
+                        60
+                      ).toFixed(0)}{" "}
+                      {idioma.p_result_YMHM[4]}{" "}
+                    </p>
+                  </Card.Title>
+                ) : (
+                  ""
+                )}
+                <Card.Text>{idioma.history[i]}</Card.Text>
+                {view == planet.name ? (
                   <div>
-                    <iframe
-                      src={planet.model}
-                      width="100%"
-                      height="450px"
-                      frameBorder="0"
-                    />
-                    <p>{planet.description}</p>
+                    <div>
+                      <iframe
+                        src={planet.model}
+                        width="100%"
+                        height="450px"
+                        frameBorder="0"
+                      />
+                      <p>{idioma.description[i]}</p>
+                    </div>
+                  <div>
+                    <button className="button-81"
+                      id={planet.name}
+                      variant="primary"
+                      onClick={(e) => setView(false)}
+                    >
+                      {idioma.b_info}
+                    </button>
                   </div>
-                  <button className="button-81"
-                    id={planet.name}
-                    variant="primary"
-                    onClick={(e) => setView(false)}
-                  >
-                    Menos información
-                  </button>
+
                 </div>
               ) : (
                 ""
@@ -232,114 +369,19 @@ function Calculadora() {
                   variant="primary"
                   onClick={(e) => setView(e.target.id)}
                 >
-                  Más información
-                </button>
+                    {idioma.info}
+                  </button>
               ) : (
                 ""
               )}
             </Card.Body>
           </Card>
         ))
-        : ""}
-
-<MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
-                <section className='p-4 border-bottom'>
-
-                    <div>
-                        <a href='https://github.com/AlbLC/cumplePlanetas' className='me-4 text-reset'>
-                            <span>Descarga, clona o lee la documentación del repositorio</span>
-                            <img className="imgithub" src={github} alt="Second slide" />
-                        </a>
-
-                    </div>
-                </section>
-
-                <section className=''>
-                    <MDBContainer className='text-center text-md-start mt-5'>
-                        <MDBRow className='mt-3'>
-                            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-                                <h6 className='text-uppercase fw-bold mb-4'>
-                                    <MDBIcon icon="gem" className="me-3" />
-                                    Tempus in planetarum
-                                </h6>
-                                <p id="parrafofooter">
-                                    Este proyecto de Full stack está disponible en su repositorio. Puedes descargarlo, leer la documentación y hacer pruebas con él. Puedes ver los portfolios de los integrantes que lo han creado. Gracias por hacer un buen uso de él y esperamos que te diviertas.
-                                </p>
-                            </MDBCol>
-
-                            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-                                <h6 className='text-uppercase fw-bold mb-4'>Tecnologías utilizadas</h6>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Javascript
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        MongoDB
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Atlas
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Mongoose
-                                    </a>
-                                </p>
-
-                            </MDBCol>
-
-                            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-                                <h6 className='text-uppercase fw-bold mb-4'> </h6>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        React
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Express
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Node
-                                    </a>
-                                </p>
-
-                            </MDBCol>
-                            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-                                <h6 className='text-uppercase fw-bold mb-4'> </h6>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        CSS
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='#!' className='text-reset'>
-                                        Bootstrap
-                                    </a>
-                                </p>
-
-                            </MDBCol>
+        :""}             
+          
 
 
-                        </MDBRow>
-                    </MDBContainer>
-                </section>
-
-                <div className='text-center p-4' style={{ backgroundColor: '#E8E7E2' }}>
-                    © 2022 Copyright :
-                    <a className='text-reset fw-bold' href='https://tempusinplanetarum.com/'>
-                        tempusinplanetarum.com
-                    </a>
-                </div>
-            </MDBFooter>
-
-
+          </div>
     </div>
   );
 }
