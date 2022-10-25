@@ -1,0 +1,95 @@
+{
+  "spanish": {
+    "bt_title": "Información de uso",
+    "text_info": "Escribe en las diferentes casillas tu día, mes y año de nacimiento y pulsa calcular. Abajo verás tu edad y tu próximo cumpleaños en los diferentes planetas. Si quieres más información de un planeta en concreto pulsa en él.",
+    "option_title_day": "Día",
+    "months": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
+    "option":"Mes",
+    "info":"Más información",
+    "option_title_year": "Año",
+    "p_invalid": "Fechas incorrectas",
+    "bt_calculate": "Calcular",
+    "p_result_YMHM": ["Tienes", "años","dias", "horas", "min"],
+    "b_info": "Menos información",
+    "description": [
+      "Junto con Venus, la Tierra y Marte, Mercurio es uno de los planetas rocosos. Tiene una superficie sólida que está cubierta de cráteres. Tiene una atmósfera delgada y no tiene ninguna luna. A Mercurio le gusta simplificar las cosas. Este planeta pequeño da vueltas lentamente comparado con la Tierra, por lo tanto, un día dura un largo tiempo. A Mercurio le lleva 59 días de la Tierra hacer una rotación completa. Un año en Mercurio pasa rápido. Debido a que es el planeta más cercano al Sol, no le lleva mucho tiempo cubrir toda la circunferencia. Completa una vuelta alrededor del Sol en solo 88 días de la Tierra. ¡Si vivieras en Mercurio, tendrías una fiesta de cumpleaños cada tres meses! Un día en Mercurio no es como un día aquí en la Tierra. Para nosotros, el Sol sale y se pone todos los días. Debido a que Mercurio gira lentamente y tiene un año corto, le lleva mucho tiempo al Sol salir y ponerse allí. Mercurio solo tiene un amanecer cada 180 días de la Tierra. ¿No te parece rarísimo?",
+      "Aunque Venus no es el planeta más cercano al Sol, es el más caliente. Tiene una atmósfera densa, llena de dióxido de carbono, que provoca el efecto invernadero, y de nubes compuestas de ácido sulfúrico. Los gases atrapan el calor y mantienen a Venus bien calentito. De hecho, hace tanto calor en Venus que metales como el plomo serían charcos de metal fundido. Venus se ve como un planeta muy activo. Tiene montañas y volcanes. Venus es similar a la Tierra, en tamaño. La Tierra es solo un poco más grande. Venus es poco común porque gira en dirección contraria a la de la Tierra y la mayoría de los otros planetas. Y su rotación es muy lenta. Tarda alrededor de 243 días terrestres en girar solo una vez. Debido a que está tan cerca del Sol, un año pasa muy rápido. Venus tarda 225 días terrestres en dar toda la vuelta alrededor del Sol. Esto significa que, en Venus, un día es un poco más largo que un año. Debido a que las longitudes del día y del año son similares, un día en Venus no es como un día en la Tierra. Aquí, en la Tierra, el Sol sale y se pone una vez por día. En Venus, el Sol sale cada 117 días terrestres. Así que el Sol sale dos veces por año, ¡aunque todavía sea el mismo día! Y dado que Venus rota hacia atrás, el Sol sale por el oeste y se pone en el este. Al igual que Mercurio, Venus no tiene ninguna luna.",
+      "Nuestro hogar, el planeta Tierra, es un planeta terrestre y rocoso. Tiene una superficie sólida y activa, con montañas, valles, cañones, llanuras y mucho más. La Tierra es especial porque es un planeta océano, ya que el agua cubre el 70% de su superficie. Nuestra atmósferaestá compuesta, en gran parte, por nitrógeno. También tiene mucho oxígeno, que nos permite respirar. Además, nos protege de los meteoroides que se acercan a la Tierra, la mayoría de los cuales se desintegran en nuestra atmósfera antes de llegar a la superficie en forma de meteoritos.    Es posible que, como se trata de nuestro hogar, pienses que lo sabemos todo sobre la Tierra. ¡La verdad es que no! Aún nos queda mucho por aprender sobre nuestro planeta. Actualmente, hay muchos satélites en órbita alrededor de la Tierra, tomando fotos y realizando mediciones. Esto nos permite saber más cosas sobre el clima, los océanos, la tierra, el cambio climático y muchos otros temas importantes.",
+      "Marte es un planeta desértico y frío. Es la mitad del tamaño de la Tierra, y también recibe el nombre de 'planeta rojo'. Es rojo por el hierro oxidado que tiene en el suelo. Como la Tierra, Marte tiene estaciones, casquetes polares, volcanes, cañones y clima. Tiene una atmósfera poco densa hecha de dióxido de carbono, nitrógeno y argón. Hay signos de antiguas inundaciones en Marte, pero ahora el agua existe principalmente en su polvo helado y sus nubes delgadas. En algunas laderas marcianas, se han encontrado pruebas de agua líquida salada. Los científicos quieren saber si Marte podría haber tenido seres vivos en el pasado. También quieren saber si Marte podría albergar vida ahora o en el futuro.",
+      "Júpiter es el planeta más grande de nuestro sistema solar. Es parecido a una estrella, pero nunca llegó a ser lo suficientemente masiva como para empezar a arder. Está cubierto de rayas de nubes arremolinadas. Tiene fuertes tormentas como la Gran Mancha Roja, que hace cientos de años que dura. Júpiter es un gigante hecho de gas, y no tiene una superficie sólida, pero puede tener un núcleo interno sólido de aproximadamente el tamaño de la Tierra. Júpiter también tiene anillos, pero son demasiado tenues para verlos muy bien.",
+      "Debido a su posición orbital más lejana que Júpiter, los antiguos romanos le otorgaron el nombre del padre de Júpiter al planeta Saturno. En la mitología romana, Saturno era el equivalente del antiguo titán griego Crono, hijo de Urano y Gea, que gobernaba el mundo de los dioses y los hombres devorando a sus hijos en cuanto nacían para que no lo destronaran. Zeus, uno de ellos, consiguió esquivar este destino y finalmente derrocó a su padre para convertirse en el dios supremo.",
+      "Urano es similar en composición a Neptuno, y los dos tienen una composición diferente de los otros dos gigantes gaseosos (Júpiter y Saturno). Por ello, los astrónomos a veces los clasifican en una categoría diferente, los gigantes helados. La atmósfera de Urano, aunque es similar a la de Júpiter y Saturno por estar compuesta principalmente de hidrógeno y helio, contiene una proporción superior tanto de «hielo»nota como de agua, amoníaco y metano, junto con trazas de hidrocarburos.",
+      "Neptuno es el octavo planeta en distancia respecto al Sol y el más lejano del sistema solar. Forma parte de los denominados planetas exteriores, y dentro de estos, es uno de los gigantes helados, y es el primero que fue descubierto gracias a predicciones matemáticas. Su nombre fue puesto en honor al dios romano del mar —Neptuno—, y es el cuarto planeta en diámetro y el tercero más grande en masa. Su masa es diecisiete veces la de la Tierra y ligeramente mayor que la de su planeta «gemelo» Urano, que tiene quince masas terrestres y no es tan denso."
+    ],
+    "history": [
+      "Se conoce a Mercurio desde la antigüedad, ya que es visible sin necesidad de usar telescopios avanzados. Ha recibido la visita de dos naves espaciales: Mariner 10 y MESSENGER.",
+      "Se conoce su existencia desde la antigüedad porque no es necesario usar telescopios avanzados para verlo. Ha recibido visitas de varias naves espaciales: Mariner 2, Mariner 5, Mariner 10, Pioneer Venus 1, Pioneer Venus 2 y un orbitador llamado Magallanes.",
+      "Conocemos la existencia de nuestro planeta desde la antigüedad, pero durante mucho tiempo no sabíamos que se encontraba en el sistema solar.",
+      "Se conoce su existencia desde la antigüedad porque no es necesario usar los telescopios más avanzados para verlo. Varias misiones han visitado el planeta rojo, y es el único planeta por donde han circulado los rovers, que se han paseado por Marte tomando fotos y haciendo mediciones.",
+      "Se sabe de su existencia desde la antigüedad, ya que se puede ver sin necesidad de usar telescopios avanzados. Ha recibido vistas de varias naves, orbitadores y sondas, como los Pioneer 10 y 11, los Voyager 1 and 2, Cassini, New Horizons y Juno.",
+      "Saturno es un planeta visiblemente achatado en los polos con un ecuador que sobresale formando un esferoide ovalado. Los diámetros ecuatorial y polar son de 120 536 y 108 728 km, respectivamente.Este efecto es producido por la rápida rotación del planeta, su naturaleza fluida y su relativamente baja gravedad. Los otros planetas gigantes son también ovalados pero en menor medida",
+      "Urano es el séptimo planeta del sistema solar, el tercero de mayor tamaño, y el cuarto más masivo. Se llama así en honor de la divinidad griega del cielo Urano (del griego antiguo Οὐρανός), el padre de Crono (Saturno) y el abuelo de Zeus (Júpiter). Aunque es detectable a simple vista en el cielo nocturno, no fue catalogado como planeta por los astrónomos de la antigüedad debido a su escasa luminosidad y a la lentitud de su órbita",
+      "El campo magnético de Neptuno, como el de Urano, está bastante inclinado, 47° respecto al eje de rotación y desplazado al menos 0,55 radios (unos 13 500 km) del centro físico."
+    ]
+  
+  },
+  "english": {
+    "bt_title": "Usage Information",
+    "text_info": "Write your day, month and year of birth in the different boxes and press calculate. Below you will see your age and your next birthday on the different planets. If you want more information about a specific planet, click on it.",
+    "option_title_day": "Day",
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "option":"Month",
+    "info":"More Info",
+    "option_title_year": "Year",
+    "p_invalid": "Invalid dates",
+    "bt_calculate": "Calculate",
+    "p_result_YMHM": ["You have", "years","days", "hours", "min"],
+    "b_info": "Less info",
+    "description": [
+      "Along with Venus, Earth and Mars, Mercury is one of the rocky planets. It has a solid surface that is covered in craters. It has a thin atmosphere and no moon at all. Mercury likes to keep things simple. This small planet gives turns slowly compared to Earth, therefore a day lasts a long time. Mercury takes 59 Earth days to make one complete rotation. A year on Mercury goes by quickly. Because it is the closest planet to the Sun, it doesnt take long to cover the entire circumference. It completes one revolution around the Sun in only 88 Earth days. If you lived on Mercury, you'd have a birthday party every three months! A day on Mercury is not like a day here on Earth. For us, the Sun rises and sets every day. Because Mercury rotates slowly and has a short year, it takes a long time for the Sun to rise and set there. Mercury only has one sunrise every 180 Earth days Doesn't it seem very strange to you?",
+      "Although Venus is not the closest planet to the Sun, it is the hottest. It has a dense atmosphere, full of carbon dioxide, which causes the greenhouse effect, and clouds made of sulfuric acid. The gases trap heat and keep Venus very warm. In fact, it is so hot on Venus that metals such as lead would be pools of molten metal. Venus looks like a very active planet. It has mountains and volcanoes. Venus is similar to Earth, in size. Earth is only slightly larger. Venus is unusual because it rotates in the opposite direction to that of Earth and most other planets. And its rotation is very slow. It takes about 243 Earth days to rotate just once. Because is so close to the Sun, a year goes by very quickly. Venus takes 225 Earth days to go all the way around the Sun. This means that, on Venus, a day is slightly longer than a year. Because the lengths of the day and year are similar, a day on Venus is not like u n day on Earth. Here on Earth, the Sun rises and sets once a day. On Venus, the Sun rises every 117 Earth days. So the Sun rises twice a year, even though it's still on the same day! And since Venus rotates backwards, the Sun rises in the west and sets in the east. Like Mercury, Venus has no moon.",
+      "Our home planet Earth is a rocky, terrestrial planet. It has a solid, active surface, with mountains, valleys, canyons, plains, and much more. Earth is special because it is an ocean planet, as water covers the 70% of its surface. Our atmosphere is made up largely of nitrogen. It also has a lot of oxygen, which allows us to breathe. It also protects us from meteoroids that approach Earth, most of which disintegrate in our atmosphere before reaching the surface in the form of meteorites. Since this is our home, you might think we know everything about Earth. The truth is that we don't! We still have a lot to learn about our planet. Today , there are many satellites in orbit around the Earth, taking photos and making measurements. This allows us to know more about the weather, the oceans, the earth, climate change and many other important topics.",
+      "Mars is a cold, desert planet. Its half the size of Earth, and is also called the red planet. It is red because of the rusty iron in the ground. Like Earth, Mars has seasons, caps polar ice caps, volcanoes, canyons, and weather. It has a thin atmosphere made of carbon dioxide, nitrogen, and argon. There are signs of ancient flooding on Mars, but now water exists mainly in its icy dust and thin clouds. On some Martian slopes , evidence of salty liquid water has been found. Scientists want to know if Mars could have had life in the past. They also want to know if Mars could support life now or in the future.",
+      "Jupiter is the largest planet in our solar system. It is similar to a star, but it never got massive enough to start burning. It's covered in streaks of swirling clouds. It has strong storms like the Great Red Spot, which it's been around for hundreds of years. Jupiter is a giant made of gas, and it doesn't have a solid surface, but it may have a solid inner core about the size of Earth. Jupiter also has rings, but they are too faint to see very well .",
+      "Because of its orbital position farther away than Jupiter, the ancient Romans gave the planet Saturn the name of Jupiter's father. In Roman mythology, Saturn was the equivalent of the ancient Greek Titan Cronus, son of Uranus and Gaia, who ruled the planet. world of gods and men devouring their children as soon as they were born so that they would not dethrone him. Zeus, one of them, managed to avoid this fate and finally overthrew his father to become the supreme god.",
+      "Uranus is similar in composition to Neptune, and the two have a different composition from the other two gas giants (Jupiter and Saturn). Because of this, astronomers sometimes classify them in a different category, the ice giants. Uranus's atmosphere , while similar to that of Jupiter and Saturn in being composed primarily of hydrogen and helium, contains a higher proportion of both ice and water, ammonia, and methane, along with trace hydrocarbons.",
+      "Neptune is the eighth planet in distance from the Sun and the farthest in the solar system. It is part of the so-called outer planets, and within these, it is one of the ice giants, and it is the first to be discovered thanks to mathematical predictions Its name was put in honor of the Roman god of the sea -Neptune-, and it is the fourth planet in diameter and the third largest in mass.Its mass is seventeen times that of the Earth and slightly greater than that of its 'twin' planet. Uranus, which has fifteen Earth masses and is not that dense."
+      ],
+    "history": [
+        "Mercury has been known since ancient times as it is visible without the use of advanced telescopes. It has been visited by two spacecraft: Mariner 10 and MESSENGER.",
+        "It has been known to exist since ancient times because you don't have to use advanced telescopes to see it. It has been visited by several spacecraft: Mariner 2, Mariner 5, Mariner 10, Pioneer Venus 1, Pioneer Venus 2, and an orbiter called Magellan.",
+        "We have known about the existence of our planet since ancient times, but for a long time we did not know that it was in the solar system.",
+        "Its existence has been known since ancient times because it is not necessary to use the most advanced telescopes to see it. Several missions have visited the red planet, and it is the only planet where rovers have circulated, which have walked around Mars taking photos and doing measurements.",
+        "It has been known to exist since ancient times, as it can be seen without using advanced telescopes. It has received views from various spacecraft, orbiters and probes, such as Pioneer 10 and 11, Voyager 1 and 2, Cassini, New Horizons and Juno.",
+        "Saturn is a visibly oblate planet at the poles with a protruding equator forming an oval spheroid. The equatorial and polar diameters are 120,536 and 108,728 km, respectively. This effect is produced by the planet's rapid rotation, its fluid nature and its relatively low gravity. The other giant planets are also oval but to a lesser extent",
+        "Uranus is the seventh planet in the solar system, the third largest, and the fourth most massive. It is named after the Greek sky divinity Uranus (from ancient Greek Οὐρανός), the father of Cronus (Saturn) and the grandfather of Zeus (Jupiter). Although it is detectable with the naked eye in the night sky, it was not cataloged as a planet by ancient astronomers due to its low luminosity and the slowness of its orbit",
+        "Neptune's magnetic field, like Uranus's, is quite tilted at 47° from the axis of rotation and displaced by at least 0.55 radii (about 13,500 km) from the physical center."
+    ]
+  }
+}
